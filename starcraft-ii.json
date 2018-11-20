@@ -1,0 +1,81 @@
+{
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "content": "DXVK ",
+            "created_at": "2018-11-19T22:00:00.000000Z",
+            "description": null,
+            "draft": false,
+            "game": "https://lutris.net/api/games/starcraft-ii?format=json",
+            "game_slug": "starcraft-ii",
+            "gogslug": "",
+            "humblestoreid": "",
+            "id": 7797,
+            "name": "StarCraft II",
+            "rating": "",
+            "runner": "wine",
+            "script": {
+                "files": [
+                    {
+                        "setup": {
+                            "filename": "Setup.exe",
+                            "url": "https://www.battle.net/download/getInstallerForGame?os=win&version=LIVE&gameProgram=BATTLENET_APP"
+                        }
+                    }
+                ],
+                "game": {
+                    "arch": "win64",
+                    "exe": "drive_c/Program Files (x86)/Battle.net/Battle.net Launcher.exe",
+                    "prefix": "$GAMEDIR"
+                },
+                "installer": [
+                    {
+                        "task": {
+                            "arch": "win64",
+                            "name": "create_prefix",
+                            "prefix": "$GAMEDIR"
+                        }
+                    },
+                    {
+                        "task": {
+                            "app": "corefonts win7",
+                            "name": "winetricks",
+                            "prefix": "$GAMEDIR"
+                        }
+                    },
+                    {
+                        "task": {
+                            "args": "/S",
+                            "executable": "setup",
+                            "name": "wineexec",
+                            "exclude_processes":"Agent.exe \"Battle.net Helper.exe\"",
+                            "prefix": "$GAMEDIR"
+                        }
+                    }
+                ],
+                "system": {
+                    "env": {
+                        "DXVK_HUD": "0"
+                    }
+                },
+                "wine": {
+                    "dxvk": true,
+                    "dxvk_version": "0.92",
+                    "overrides": {
+                        "nvapi,nvapi64": "disabled",
+                        "xaudio2_7": "native,builtin"
+                    },
+                    "version": "tkg-3.20-x86_64"
+                }
+            },
+            "slug": "uplay-dxvk",
+            "steamid": null,
+            "updated_at": "2018-11-18T08:41:56.481243Z",
+            "user": "cxf",
+            "version": "DXVK",
+            "year": 2012
+        }
+    ]
+}
